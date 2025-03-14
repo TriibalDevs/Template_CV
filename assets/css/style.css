@@ -1,3 +1,20 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#cv {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 /* HEADER */
 header {
     background-color: #17abb3;
@@ -143,31 +160,74 @@ header {
     margin-right: 8px;
 }
 
-/* Formations, stages et expérience professionnelle alignés */
+/* ******* CORRECTION DES ESPACEMENTS ******** */
+
+/* Alignement global des sections */
 .formations, .stages, .experience {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
+/* Titres de section */
 .formations h2, .stages h2, .experience h2 {
     color: #17abb3;
-    border-bottom: 2px solid #17abb3;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+    padding-bottom: 3px;
+    margin-bottom: 5px; /* Réduction de l'espacement sous les titres */
 }
 
-.formations div, .stages div, .experience div {
+/* Alignement et espacement des éléments */
+.formations .formation-item, 
+.stages .stage-item, 
+.experience .experience-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 10px;
+    align-items: flex-start;
+    margin-bottom: 2px; /* Réduction de l'espace entre chaque élément */
 }
 
-.formations strong, .stages strong, .experience strong {
+/* Alignement vertical parfait */
+.formations .formation-info, 
+.stages .stage-info, 
+.experience .experience-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style des titres */
+.formations .formation-info p.titre, 
+.stages .stage-info p.titre, 
+.experience .experience-info p.titre {
     font-weight: bold;
+    font-size: 15px;
+    margin-bottom: -3px; /* Rapprochement du texte */
+    line-height: 1.1; /* Moins d’espace entre les lignes */
 }
 
-.formations span, .stages span, .experience span {
+/* Style des descriptions */
+.formations .formation-info p.description, 
+.stages .stage-info p.description, 
+.experience .experience-info p.description {
+    font-style: italic;
+    font-size: 13px;
+    color: #666;
+    margin-top: -5px; /* Rapprochement avec le titre */
+}
+
+/* Style des dates */
+.formations .formation-date, 
+.stages .stage-date, 
+.experience .experience-date {
     color: #17abb3;
+    font-size: 13px;
+    white-space: nowrap;
+    margin-left: 10px;
+    margin-top: -8px; /* Ajustement pour éviter un trop grand espace */
+}
+
+/* Correction des espaces excessifs */
+.formations .formation-item:last-child,
+.stages .stage-item:last-child,
+.experience .experience-item:last-child {
+    margin-bottom: 0;
 }
 
 /* Colonne droite */
@@ -179,11 +239,11 @@ header {
 .right-column h2 {
     color: #17abb3;
     padding-bottom: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Moins d'espace sous le titre */
 }
 
 .right-column p {
-    margin: 10px 0;
+    margin: 8px 0; /* Réduction de l’espacement général */
 }
 
 /* Footer */
@@ -192,7 +252,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 40px;
+    margin-top: 30px; /* Moins d’espace au-dessus du footer */
 }
 
 .footer-container {
@@ -230,4 +290,3 @@ footer {
         width: 100%;
     }
 }
-
