@@ -150,25 +150,50 @@ header {
 
 .formations h2, .stages h2, .experience h2 {
     color: #17abb3;
-    border-bottom: 2px solid #17abb3;
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
 
-.formations div, .stages div, .experience div {
+/* Ajustement pour aligner correctement chaque élément */
+.formations .formation-item, .stages .stage-item, .experience .experience-item {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 10px;
+    align-items: flex-start; /* Alignement en haut pour éviter les problèmes de baseline */
+    margin-bottom: 15px;
 }
 
-.formations strong, .stages strong, .experience strong {
+/* Structure du bloc info pour garder le titre et la description bien placés */
+.formations .formation-info, .stages .stage-info, .experience .experience-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style du titre */
+.formations .formation-info p.titre, 
+.stages .stage-info p.titre, 
+.experience .experience-info p.titre {
     font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 2px; /* Réduction de l'espace sous le titre */
 }
 
-.formations span, .stages span, .experience span {
-    color: #17abb3;
+/* Style de la description */
+.formations .formation-info p.description, 
+.stages .stage-info p.description, 
+.experience .experience-info p.description {
+    font-style: italic;
+    font-size: 14px;
+    color: #666;
+    margin-top: 0px;
 }
+
+/* Style des dates */
+.formations .formation-date, .stages .stage-date, .experience .experience-date {
+    color: #17abb3;
+    font-size: 14px;
+    white-space: nowrap; /* Empêche les dates de se couper sur plusieurs lignes */
+}
+
 
 /* Colonne droite */
 .right-column {
