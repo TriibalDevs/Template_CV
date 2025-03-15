@@ -1,14 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@400;700&display=swap');
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
-    color: #333;
+    color: #333333;
 }
 
 * {
     box-sizing: border-box;
 }
+
+/* Police pour les titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+/* Police pour les textes et contenus */
+body, p, span, li, a {
+    font-family: 'Raleway', sans-serif;
+    font-weight: normal;
+}
+
+/* Assurer la prise en charge du gras et de l'italique */
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
 
 #cv {
     max-width: 1160px;
@@ -47,7 +71,7 @@ header {
     margin: 0 auto;
 }
 
-/* Image */
+/* Conteneur de l'image */
 .header-container img {
     width: 130px;
     height: 130px;
@@ -55,6 +79,13 @@ header {
     object-fit: cover;
     margin-right: 20px;
     border: 4px solid #fff;
+    transition: transform 0.3s ease-in-out; /* Animation fluide */
+    cursor: zoom-in; /* Curseur de zoom */
+}
+
+/* Effet de zoom au survol */
+.header-container a:hover img {
+    transform: scale(1.1); /* Zoom fluide */
 }
 
 /* Texte principal */
@@ -230,6 +261,52 @@ header {
     margin-bottom: 0;
 }
 
+.formations .formation-item, 
+.stages .stage-item, 
+.experience .experience-item {
+    position: relative;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease-in-out; /* Animation fluide du fond */
+}
+
+/* Ajout d'un léger espace en bas pour la séparation */
+.formations .formation-item:not(:last-child),
+.stages .stage-item:not(:last-child),
+.experience .experience-item:not(:last-child) {
+    border-bottom: 1px solid #ddd; /* Ligne de séparation discrète */
+}
+
+/* Le trait bleu est TOUJOURS visible */
+.formations .formation-item::before, 
+.stages .stage-item::before, 
+.experience .experience-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #17abb3; /* Bleu toujours visible */
+}
+
+/* Effet au survol : fond gris + léger soulèvement */
+.formations .formation-item:hover, 
+.stages .stage-item:hover, 
+.experience .experience-item:hover {
+    background-color: #e6e6e6; /* Fond gris clair */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Effet d'élévation */
+}
+
+/* Supprimer complètement le trait dès que la souris quitte */
+.formations .formation-item:not(:hover)::before, 
+.stages .stage-item:not(:hover)::before, 
+.experience .experience-item:not(:hover)::before {
+    content: none !important; /* Supprime totalement le trait */
+}
+
 /* Colonne droite */
 .right-column {
     width: 70%;
@@ -274,11 +351,14 @@ footer {
 .social-icons a {
     color: white;
     font-size: 20px;
-    transition: 0.3s;
+    transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1; /* Opacité normale */
 }
 
+/* Effet au survol : réduction de l'opacité */
 .social-icons a:hover {
     color: #f0f0f0;
+    opacity: 0.7; /* Opacité légèrement réduite */
 }
 
 /* Responsive */
@@ -289,4 +369,40 @@ footer {
     .left-column, .right-column {
         width: 100%;
     }
+}
+
+.maps-link {
+    color: inherit; /* Garde la couleur actuelle du texte */
+    font-weight: inherit; /* Garde le style de texte actuel */
+    text-decoration: none; /* Supprime le soulignement */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.maps-link:hover {
+    opacity: 0.7; /* Réduit légèrement l'opacité au survol */
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.email-link {
+    color: inherit; /* Garde la couleur actuelle du texte */
+    font-weight: inherit; /* Garde le style de texte actuel */
+    text-decoration: none; /* Pas de soulignement */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.email-link:hover {
+    opacity: 0.7; /* Réduction de l'opacité au survol */
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+.phone-link {
+    color: inherit; /* Garde la couleur actuelle */
+    font-weight: inherit; /* Garde le style du texte */
+    text-decoration: none; /* Pas de soulignement */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.phone-link:hover {
+    opacity: 0.7; /* Réduction de l'opacité au survol */
+    text-decoration: underline; /* Ajoute un soulignement au survol */
 }
